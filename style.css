@@ -29,6 +29,12 @@ body {
     align-items: center;
     font-size: 2rem;
     z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+#loading.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .container {
@@ -77,8 +83,8 @@ body {
 }
 
 .shortcuts a {
-    width: 85px;
-    height: 80px;
+    width: 65px;
+    height: 60px;
     background-color: #e6dfcd;
     border-radius: 18px;
     display: flex;
@@ -91,4 +97,13 @@ body {
     width: 45px;
     height: 45px;
     object-fit: contain;
+}
+
+.shortcuts a {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.shortcuts a:hover {
+    transform: translateY(-4px);
+    background-color: #f2ecd8;
 }

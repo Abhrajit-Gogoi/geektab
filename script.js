@@ -3,8 +3,6 @@ const searchInput = document.getElementById('search-input');
 const quoteElement = document.getElementById('quote');
 const loadingElement = document.getElementById('loading');
 
-loadingElement.style.display = 'none';
-
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const query = searchInput.value.trim();
@@ -13,7 +11,7 @@ searchForm.addEventListener('submit', (e) => {
     }
 });
 
-async function getquote() {
+async function getQuote() {
     try {
         const res = await fetch('https://katanime.vercel.app/api/getrandom');
         const data = await res.json();
@@ -21,7 +19,9 @@ async function getquote() {
         quoteElement.textContent = firstQuote?.english || firstQuote?.indo || "People's lives don't end when they die, it ends when they lose faith.";
     } catch {
         quoteElement.textContent = "People's lives don't end when they die, it ends when they lose faith.";
+    } finally {
+        loadingElement.classList.add('hidden');
     }
 }
 
-getquote();
+getQuote();
