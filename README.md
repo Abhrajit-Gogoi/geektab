@@ -3,6 +3,7 @@ Hello World!!
    This is a custom new tab website created for anime lovers. It even includes added bookmarks for some common apps. The vision is big with this project and only the first version V1.0 is completed. You can keep your hopes up for the upcoming versions!!
 
 Features: 
+
     - A working search bar (it makes a search for you and redirects you to google)
     - 4 working shortcut buttons which redirect you to the website. (The buttons also have their logos)
     - It gets the anime quote via getquote() function from katanime website using it's api
