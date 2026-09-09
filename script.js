@@ -13,7 +13,7 @@ searchForm.addEventListener('submit', (e) => {
     }
 });
 
-async function getQuote() {
+async function getquote() {
     try {
         const res = await fetch('https://katanime.vercel.app/api/getrandom');
         const data = await res.json();
@@ -24,4 +24,4 @@ async function getQuote() {
     }
 }
 
-getQuote();
+getquote();
