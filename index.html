@@ -10,9 +10,29 @@
 
     <div id="loading">Geek Tab</div>
 
-    <div class="container">
-        <p id="quote">Loading quote...</p>
+    <div class="sidebar">
+        <div class="calendar-widget">
+            <div id="calendar-header"></div>
+            <div class="calendar-weekdays">
+                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+            </div>
+            <div id="calendar-days"></div>
+        </div>
 
+        <div class="media-widget">
+            <div class="media-art-container">
+                <img id="media-art" src="images/blank.png" alt="Media Cover">
+            </div>
+            <div id="media-title">No Media Playing</div>
+            <div class="media-controls">
+                <button id="prev-btn">&#9198;</button>
+                <button id="play-btn">&#9654;</button>
+                <button id="next-btn">&#9197;</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="center-container">
         <form id="search-form">
             <input type="text" id="search-input" placeholder="SEARCH GEEK TAB" autocomplete="off">
         </form>
@@ -22,6 +42,22 @@
             <a href="https://github.com"><img src="images/github.png" alt="GitHub"></a>
             <a href="https://everythingmoe.com"><img src="images/everythingmoe.png" alt="EverythingMoe"></a>
             <a href="https://anikoto.com"><img src="images/anikoto.png" alt="Anikoto"></a>
+        </div>
+    </div>
+
+    <div class="bottom-container">
+        <p id="quote">Loading quote...</p>
+    </div>
+
+    <div id="event-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modal-date">Event</h3>
+            <input type="text" id="event-input" placeholder="Enter event details">
+            <div class="modal-buttons">
+                <button id="save-event-btn">Save</button>
+                <button id="delete-event-btn">Delete</button>
+                <button id="close-modal-btn">Close</button>
+            </div>
         </div>
     </div>
 

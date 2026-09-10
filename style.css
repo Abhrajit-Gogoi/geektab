@@ -7,13 +7,22 @@
 body {
     height: 100vh;
     width: 100vw;
-    background: url('background.png') no-repeat center center/cover;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    background: #000000 url('background.png') no-repeat center center/cover;
+    position: relative;
     overflow: hidden;
     font-family: 'Times New Roman', Times, serif;
     color: #ffffff;
+    border-top: 6px solid #e09922;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e09922;
 }
 
 #loading {
@@ -37,20 +46,126 @@ body {
     pointer-events: none;
 }
 
-.container {
-    margin-right: 12%;
+.sidebar {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 10;
+}
+
+.calendar-widget {
+    width: 220px;
+    background-color: #261607;
+    border: 1px solid #523412;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.calendar-header {
+    text-align: center;
+    color: #b87a28;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.calendar-days, .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.75rem;
+    gap: 4px;
+}
+
+.calendar-days span {
+    color: #b87a28;
+}
+
+.calendar-grid span {
+    color: #80541b;
+    padding: 3px 0;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.calendar-grid span:hover {
+    background-color: #42290e;
+    color: #ffffff;
+}
+
+.calendar-grid span.active {
+    color: #d49537;
+    font-weight: bold;
+}
+
+.calendar-grid span.has-event {
+    background-color: #5c3a10;
+    color: #ffffff;
+}
+
+.media-widget {
+    width: 220px;
+    background-color: #a6793e;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.media-art {
+    width: 180px;
+    height: 180px;
+    background-color: #2b1f13;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.media-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.media-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.media-controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.media-controls button {
+    background: none;
+    border: none;
+    color: #1a1209;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.main-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
-}
-
-#quote {
-    font-size: 1.4rem;
-    text-align: center;
-    line-height: 1.4;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 #search-form {
@@ -59,14 +174,14 @@ body {
 
 #search-input {
     width: 100%;
-    padding: 14px 20px;
+    padding: 12px 20px;
     border-radius: 25px;
     border: none;
     outline: none;
-    background-color: #a39c89;
+    background-color: #c9ab79;
     color: #2b2823;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -79,31 +194,43 @@ body {
     display: flex;
     gap: 16px;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .shortcuts a {
-    width: 65px;
-    height: 60px;
-    background-color: #e6dfcd;
-    border-radius: 18px;
+    width: 75px;
+    height: 70px;
+    background-color: #c9ab79;
+    border-radius: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-}
-
-.shortcuts img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-}
-
-.shortcuts a {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .shortcuts a:hover {
     transform: translateY(-4px);
-    background-color: #f2ecd8;
+    background-color: #d9bd8b;
+}
+
+.shortcuts img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.quote-container {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    text-align: center;
+}
+
+#quote {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
