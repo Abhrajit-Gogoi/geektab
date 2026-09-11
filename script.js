@@ -10,6 +10,42 @@ const mediaTitle = document.getElementById('media-title');
 const mediaPrev = document.getElementById('media-prev');
 const mediaPlay = document.getElementById('media-play');
 const mediaNext = document.getElementById('media-next');
+const introVideo = document.getElementById('intro-video');
+const skipIntroBtn = document.getElementById('skip-intro');
+const customCursor = document.getElementById('custom-cursor');
+
+document.addEventListener('mousemove', (e) => {
+    if (customCursor) {
+        customCursor.style.left = `${e.clientX}px`;
+        customCursor.style.top = `${e.clientY}px`;
+    }
+});
+
+function dismissIntro() {
+    if (introVideo) introVideo.classList.add('fade-out');
+    if (skipIntroBtn) skipIntroBtn.classList.add('fade-out');
+    setTimeout(() => {
+        if (introVideo) introVideo.style.display = 'none';
+        if (skipIntroBtn) skipIntroBtn.style.display = 'none';
+    }, 1000);
+}
+
+if (introVideo) {
+    introVideo.addEventListener('ended', dismissIntro);
+}
+
+if (skipIntroBtn) {
+    skipIntroBtn.addEventListener('click', dismissIntro);
+}
+
+if (introVideo) {
+    introVideo.addEventListener('ended', () => {
+        introVideo.classList.add('fade-out');
+        setTimeout(() => {
+            introVideo.style.display = 'none';
+        }, 1000);
+    });
+}
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -140,3 +176,4 @@ audio.addEventListener('ended', () => {
 getQuote();
 renderCalendar();
 loadTrack(currentIndex);
+

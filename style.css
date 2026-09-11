@@ -235,3 +235,61 @@ body::after {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+#intro-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 2000;
+    transition: opacity 1s ease;
+}
+
+#intro-video.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#skip-intro {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    z-index: 2001;
+    transition: opacity 1s ease, background-color 0.2s ease;
+}
+
+#skip-intro:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#skip-intro.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+* {
+    cursor: none !important;
+}
+
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url('media/cursor.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
