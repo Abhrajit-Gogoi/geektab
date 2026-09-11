@@ -85,8 +85,9 @@ function renderCalendar() {
 }
 
 const playlist = [
-    { title: "Song 1", src: "songs/song1.mp3", cover: "images/cover1.jpg" },
-    { title: "Song 2", src: "songs/song2.mp3", cover: "images/cover2.jpg" }
+    { title: "gurenge", src: "media/songs/gurenge.mp3", cover: "media/gurenge.jpeg" },
+    { title: "I really want to stay at your house", src: "media/songs/cyberpunk.mp3", cover: "media/cyberpunk.jpeg" }
+    
 ];
 
 let currentIndex = 0;
@@ -101,6 +102,7 @@ function loadTrack(index) {
 
 function playTrack() {
     audio.play();
+    audio.volume = 0.05;
     mediaPlay.innerHTML = '&#9208;';
 }
 
