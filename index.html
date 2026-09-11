@@ -12,27 +12,27 @@
 
     <div class="sidebar">
         <div class="calendar-widget">
-            <div id="calendar-header"></div>
-            <div class="calendar-weekdays">
+            <div class="calendar-header" id="calendar-month"></div>
+            <div class="calendar-days">
                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
             </div>
-            <div id="calendar-days"></div>
+            <div class="calendar-grid" id="calendar-dates"></div>
         </div>
 
         <div class="media-widget">
-            <div class="media-art-container">
-                <img id="media-art" src="images/blank.png" alt="Media Cover">
+            <div class="media-art">
+                <img id="media-cover" src="" alt="">
             </div>
-            <div id="media-title">No Media Playing</div>
+            <div class="media-title" id="media-title">Name</div>
             <div class="media-controls">
-                <button id="prev-btn">&#9198;</button>
-                <button id="play-btn">&#9654;</button>
-                <button id="next-btn">&#9197;</button>
+                <button id="media-prev">&#9198;</button>
+                <button id="media-play">&#9654;</button>
+                <button id="media-next">&#9197;</button>
             </div>
         </div>
     </div>
 
-    <div class="center-container">
+    <div class="main-content">
         <form id="search-form">
             <input type="text" id="search-input" placeholder="SEARCH GEEK TAB" autocomplete="off">
         </form>
@@ -45,20 +45,8 @@
         </div>
     </div>
 
-    <div class="bottom-container">
+    <div class="quote-container">
         <p id="quote">Loading quote...</p>
-    </div>
-
-    <div id="event-modal" class="modal hidden">
-        <div class="modal-content">
-            <h3 id="modal-date">Event</h3>
-            <input type="text" id="event-input" placeholder="Enter event details">
-            <div class="modal-buttons">
-                <button id="save-event-btn">Save</button>
-                <button id="delete-event-btn">Delete</button>
-                <button id="close-modal-btn">Close</button>
-            </div>
-        </div>
     </div>
 
     <script src="script.js"></script>
