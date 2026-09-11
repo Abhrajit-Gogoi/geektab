@@ -122,7 +122,9 @@ function renderCalendar() {
 
 const playlist = [
     { title: "gurenge", src: "media/songs/gurenge.mp3", cover: "media/gurenge.jpeg" },
-    { title: "I really want to stay at your house", src: "media/songs/cyberpunk.mp3", cover: "media/cyberpunk.jpeg" }
+    { title: "I really want to stay at your house", src: "media/songs/cyberpunk.mp3", cover: "media/cyberpunk.jpeg" },
+    { title: "Scarborough Fair", src: "media/songs/scar.mp3", cover:'media/scar.jpg' },
+    { title: "Blue Bird", src: "media/songs/bluebird.mp3", cover: 'media/bluebird.jpg'}
     
 ];
 
@@ -132,7 +134,15 @@ const audio = new Audio();
 function loadTrack(index) {
     const track = playlist[index];
     mediaTitle.textContent = track.title;
-    mediaCover.src = track.cover;
+    
+    if (track.cover) {
+        mediaCover.src = track.cover;
+        mediaCover.style.display = 'block';
+    } else {
+        mediaCover.src = '';
+        mediaCover.style.display = 'none';
+    }
+    
     audio.src = track.src;
 }
 
